@@ -2,7 +2,7 @@ use std::fs::{self, File};
 
 use clap::Parser;
 
-const BASE_DIR: &str = "/tmp";
+const BASE_DIR: &str = ".";
 
 enum FileType {
     Python,
@@ -41,7 +41,7 @@ struct Cli {
 fn main() -> anyhow::Result<()> {
     let args = Cli::parse();
 
-    let dab_root = format!("{}/dabgen/{}", BASE_DIR, args.name);
+    let dab_root = format!("{}/{}", BASE_DIR, args.name);
     fs::create_dir_all(&dab_root)?;
 
     // databricks resources
