@@ -2,8 +2,6 @@ use std::fs::{self, File};
 
 use clap::Parser;
 
-const BASE_DIR: &str = ".";
-
 enum FileType {
     Python,
     Yaml,
@@ -23,6 +21,8 @@ impl FileType {
 struct Cli {
     /// Name of the DAB
     name: String,
+    /// Path to the root directory
+    path: String,
 
     /// Target name. Use the option multiple times to define more targets
     #[arg(short, long)]
@@ -41,7 +41,7 @@ struct Cli {
 fn main() -> anyhow::Result<()> {
     let args = Cli::parse();
 
-    let dab_root = format!("{}/{}", BASE_DIR, args.name);
+    let dab_root = format!("{}/{}", args.path, args.name);
     fs::create_dir_all(&dab_root)?;
 
     // databricks resources

@@ -7,7 +7,8 @@ DAB file structure generator.
 _For now requires `cargo` installed locally. [Installation instruction](https://doc.rust-lang.org/cargo/getting-started/installation.html)._
 _In the future a proper rust package (installable as binary) will be published._
 
-The tool expects `name` of the DAB as positional argument. Additionally, the following options are available:
+The tool expects `name` of the DAB and `path` to the root directory as positional arguments.
+Additionally, the following options are available:
  * `-t, --target <TARGET>` -- Target name. Use the option multiple times to define more targets
  * `-p, --pipeline <PIPELINE>` -- Pipeline name. Use the option multiple times to define more pipelines
  * `-j, --job <JOB>` -- Job name. Use the option multiple times to define more jobs
@@ -16,14 +17,14 @@ The tool expects `name` of the DAB as positional argument. Additionally, the fol
 
 Thus, the following command:
 ```bash
-cargo run -- dab_name -t tst -p load -j job
+cargo run -- dab_name /some/path -t tst -p load -j job
 ```
 
 creates the following file structure:
 ```
-./dab_name/dab_name/__init__.py
-./dab_name/job/job.yaml
-./dab_name/pipelines/load.yaml
-./dab_name/targets/tst.yaml
-./dab_name/databricks.yaml
+/some/path/dab_name/dab_name/__init__.py
+/some/path/dab_name/job/job.yaml
+/some/path/dab_name/pipelines/load.yaml
+/some/path/dab_name/targets/tst.yaml
+/some/path/dab_name/databricks.yaml
 ```
