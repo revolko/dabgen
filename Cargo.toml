@@ -2,6 +2,9 @@
 name = "dabgen"
 version = "0.1.0"
 edition = "2024"
+license = "MIT"
+author = "revolko (Juraj Paluba)"
+description = "DAB file structure generator"
 
 [dependencies]
 clap = { version = "4.6", features = ["derive"] }
