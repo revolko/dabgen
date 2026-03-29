@@ -2,10 +2,16 @@
 
 DAB file structure generator.
 
-# How to run
+# Installation
 
-_For now requires `cargo` installed locally. [Installation instruction](https://doc.rust-lang.org/cargo/getting-started/installation.html)._
-_In the future a proper rust package (installable as binary) will be published._
+_Requires `cargo` installed locally. [Installation instruction](https://doc.rust-lang.org/cargo/getting-started/installation.html)._
+
+The tool is uploaded to `crates.io` so you can install `dabgen` as system binary
+```bash
+cargo install dabgen
+```
+
+# How to run
 
 The tool expects `name` of the DAB and `path` to the root directory as positional arguments.
 Additionally, the following options are available:
@@ -17,7 +23,7 @@ Additionally, the following options are available:
 
 Thus, the following command:
 ```bash
-cargo run -- dab_name /some/path -t tst -p load -j job
+dabgen dab_name /some/path -t tst -p load -j job
 ```
 
 creates the following file structure:
